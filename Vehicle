@@ -1,0 +1,24 @@
+package Dealership;
+// Class is used to store all the different values of the types of vehicles we will
+// have in our dealership. Currently it's just Vehicle type, color, amount of doors
+// I do plan on changing the values to something more detailed that you would see 
+// at a rental store.
+public class Vehicle {
+
+	public String vType, color;
+	public int doors;
+	
+	
+	public Vehicle()
+	{
+		vType = "";
+		color = "";
+		doors = 0;
+	}
+	public Vehicle(String vType, String color, int doors) {
+		vType = this.vType;
+		color = this.color;
+		doors = this.doors;
+		
+	}
+}
