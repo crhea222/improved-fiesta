@@ -1,3 +1,14 @@
+package Dealership;
+
+// C211 Group Project Team 8
+// Ling Jin
+// April 6, 2024
+// Inventory management system for our dealership.
+// This class manages the inventory of vehicles.
+
+import java.util.ArrayList;
+import java.util.List;
+
 //InventoryManagementSystem class to manage the inventory of vehicles
 public class InventoryManagementSystem {
     
