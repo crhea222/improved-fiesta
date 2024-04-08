@@ -1,0 +1,39 @@
+//InventoryManagementSystem class to manage the inventory of vehicles
+public class InventoryManagementSystem {
+    
+    // attributes: inventory
+    List<Vehicle> inventory;
+
+    // Constructor to initialize an empty inventory list
+    public InventoryManagementSystem() {
+        this.inventory = new ArrayList<>();
+    }
+
+    // Method to add a vehicle to the inventory list
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+    }
+
+    // Method to display the inventory
+    public void viewInventory() {
+        for (Vehicle vehicle : inventory) {
+            System.out.println("Type: " + vehicle.vType() + ", Color: " + vehicle.color());
+        }
+    }
+
+    // Method to rent a vehicle of a specific type and color
+    public String rentVehicle(String type, String color) {
+
+    // I'll add more details here
+
+    }
+
+    // Method to return a rented vehicle of a specific type and color
+    public String returnVehicle(String type, String color) {
+
+    // I'll add more details here
+
+    }
+}
+
+
