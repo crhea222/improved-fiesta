@@ -11,40 +11,58 @@ import java.util.List;
 
 //InventoryManagementSystem class to manage the inventory of vehicles
 public class InventoryManagementSystem {
-    
-    // attributes: inventory
-    List<Vehicle> inventory;
+	
+	// Declare inventory array
+	Vehicle[] inventory; 
 
-    // Constructor to initialize an empty inventory list
-    public InventoryManagementSystem() {
-        this.inventory = new ArrayList<>();
-    }
+	// Constructor to initialize the inventory array
+	public InventoryManagementSystem() {
+		inventory = new Vehicle[10];
+		inventory[0] = new Vehicle("Car", "Red");
+		inventory[1] = new Vehicle("Truck", "Red");
+		inventory[2] = new Vehicle("Motorcycle", "Red");
+		inventory[3] = new Vehicle("Car", "Blue");
+		inventory[4] = new Vehicle("Truck", "Blue");
+		inventory[5] = new Vehicle("Motorcycle", "Blue");
+		inventory[6] = new Vehicle("Car", "White");
+		inventory[7] = new Vehicle("Truck", "White");
+		inventory[8] = new Vehicle("Motorcycle", "White");
+		inventory[9] = new Vehicle("Car", "Green");
+	}
 
-    // Method to add a vehicle to the inventory list
-    public void addVehicle(Vehicle vehicle) {
-        inventory.add(vehicle);
-    }
+	// Method to display the inventory
+	public void viewInventory() {
+		System.out.println("Available Vehicles:");
+		for (int i = 0; i < inventory.length; i++) {
+			if (inventory[i] != null) {
+				System.out.println("Vehicle " + (i + 1) + ": " + inventory[i].vType + ", Color: " + inventory[i].color);
+			}
+		}
+	}
 
-    // Method to display the inventory
-    public void viewInventory() {
-        for (Vehicle vehicle : inventory) {
-            System.out.println("Type: " + vehicle.vType() + ", Color: " + vehicle.color());
-        }
-    }
+	// Method to rent a vehicle by its corresponding number
+	public void rentVehicle(int choice) {
+		if (choice < 1 || choice > inventory.length || inventory[choice - 1] == null) {
+			System.out.println("Invalid choice.");
+		} else {
+			System.out.println(
+					"You have rented a " + inventory[choice - 1].color + " " + inventory[choice - 1].vType + ".");
+		}
+	}
 
-    // Method to rent a vehicle of a specific type and color
-    public String rentVehicle(String type, String color) {
-
-    // I'll add more details here
-
-    }
-
-    // Method to return a rented vehicle of a specific type and color
-    public String returnVehicle(String type, String color) {
-
-    // I'll add more details here
-
-    }
+	// Method to return a rented vehicle of a specific type and color
+	public void returnVehicle(String type, String color) {
+		boolean found = false;
+		for (int i = 0; i < inventory.length; i++) {
+			if (inventory[i] != null && inventory[i].vType.equals(type) && inventory[i].color.equals(color)) {
+				inventory[i] = new Vehicle(type, color);
+				System.out.println("You have returned the " + color + " " + type + ".");
+				found = true;
+				break;
+			}
+		}
+		if (!found) {
+			System.out.println("No matching vehicle found for return.");
+		}
+	}
 }
-
-
