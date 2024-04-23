@@ -18,15 +18,15 @@ public class InventoryManagementSystem {
 	// Constructor to initialize the inventory array
 	public InventoryManagementSystem() {
 		inventory = new Vehicle[10];
-		inventory[0] = new Vehicle("Toyota "," Prius ","Red ", 78);
-		inventory[1] = new Vehicle("Toyota "," Camry "," Red ", 83);
+		inventory[0] = new Vehicle(" Toyota "," Prius ","Red ", 78);
+		inventory[1] = new Vehicle(" Toyota "," Camry "," Red ", 83);
 		inventory[2] = new Vehicle(" Toyota ", " Camry "," Blue ", 83);
 		inventory[3] = new Vehicle(" Ford "," Explorer "," Blue ", 79);
 		inventory[4] = new Vehicle(" Ford "," Explorer "," Red ", 81);
 		inventory[5] = new Vehicle(" Ford "," Bronco "," Black ", 98);
 		inventory[6] = new Vehicle(" Audi "," A5 "," White ", 104);
 		inventory[7] = new Vehicle(" Audi "," A4 ", " Black ", 92);
-		inventory[8] = new Vehicle("Audi"," A5 ", " Black ", 104);
+		inventory[8] = new Vehicle(" Audi"," A5 ", " Black ", 104);
 		inventory[9] = new Vehicle(" Audi "," A4 "," Green ", 97);
 	}
 
