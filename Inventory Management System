@@ -35,7 +35,8 @@ public class InventoryManagementSystem {
 		System.out.println("Available Vehicles:");
 		for (int i = 0; i < inventory.length; i++) {
 			if (inventory[i] != null) {
-				System.out.println("Vehicle " + (i + 1) + ": " + inventory[i].vType + ", Color: " + inventory[i].color);
+				System.out.println("Vehicle " + (i + 1) + ": " + inventory[i].make + " " + inventory[i].model
+                        + " " + inventory[i].color + " " + inventory[i].price);
 			}
 		}
 	}
@@ -45,18 +46,18 @@ public class InventoryManagementSystem {
 		if (choice < 1 || choice > inventory.length || inventory[choice - 1] == null) {
 			System.out.println("Invalid choice.");
 		} else {
-			System.out.println(
-					"You have rented a " + inventory[choice - 1].color + " " + inventory[choice - 1].vType + ".");
+			System.out.println("You have rented a " + inventory[choice - 1].make + " " + inventory[choice - 1].model
+                    + " " + inventory[choice - 1].color + " " + inventory[choice - 1].price + ".");
 		}
 	}
 
-	// Method to return a rented vehicle of a specific type and color
-	public void returnVehicle(String type, String color) {
+	// Method to return a rented vehicle of a specific make, model and color
+	public void returnVehicle(String make, String model, String color) {
 		boolean found = false;
 		for (int i = 0; i < inventory.length; i++) {
-			if (inventory[i] != null && inventory[i].vType.equals(type) && inventory[i].color.equals(color)) {
-				inventory[i] = new Vehicle(type, color);
-				System.out.println("You have returned the " + color + " " + type + ".");
+			if (inventory[i] != null && inventory[i].make.equals(make) && inventory[i].model.equals(model) && inventory[i].color.equals(color)) {
+				inventory[i] = null;
+				System.out.println("You have returned the " + color + " " + make + " " + model + ".");
 				found = true;
 				break;
 			}
