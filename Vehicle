@@ -13,7 +13,7 @@ public class Vehicle {
 		color = "";
 		price = 0;
 	}
-	public Vehicle(String vType,String model, String color, int price) {
+	public Vehicle(String make, String model, String color, int price) {
 		make = this.make;
 		model = this.model;
 		color = this.color;
