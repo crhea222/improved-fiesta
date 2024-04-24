@@ -1,69 +1,109 @@
 package Dealership;
 
 // C211 Group Project Team 8
-// Ling Jin
+// Ling Jin, Chelsea Rhea, Ben Hogan
 // April 23, 2024
 // Inventory management system for our dealership.
 // This class manages the inventory of vehicles.
-
 import java.util.ArrayList;
 import java.util.List;
 
 //InventoryManagementSystem class to manage the inventory of vehicles
 public class InventoryManagementSystem {
-	
-	// Declare inventory array
-	Vehicle[] inventory; 
 
-	// Constructor to initialize the inventory array
-	public InventoryManagementSystem() {
-		inventory = new Vehicle[10];
-		inventory[0] = new Vehicle(" Toyota "," Prius ","Red ", 78);
-		inventory[1] = new Vehicle(" Toyota "," Camry "," Red ", 83);
-		inventory[2] = new Vehicle(" Toyota ", " Camry "," Blue ", 83);
-		inventory[3] = new Vehicle(" Ford "," Explorer "," Blue ", 79);
-		inventory[4] = new Vehicle(" Ford "," Explorer "," Red ", 81);
-		inventory[5] = new Vehicle(" Ford "," Bronco "," Black ", 98);
-		inventory[6] = new Vehicle(" Audi "," A5 "," White ", 104);
-		inventory[7] = new Vehicle(" Audi "," A4 ", " Black ", 92);
-		inventory[8] = new Vehicle(" Audi"," A5 ", " Black ", 104);
-		inventory[9] = new Vehicle(" Audi "," A4 "," Green ", 97);
-	}
+    // Declare inventory array
+    Vehicle[] inventory;
+    int inventorySize;
 
-	// Method to display the inventory
-	public void viewInventory() {
-		System.out.println("Available Vehicles:");
-		for (int i = 0; i < inventory.length; i++) {
-			if (inventory[i] != null) {
-				System.out.println("Vehicle " + (i + 1) + ": " + inventory[i].make + " " + inventory[i].model
-                        + " " + inventory[i].color + " " + inventory[i].price);
-			}
-		}
-	}
+    Vehicle[] rentInventory;
+    int rentInventorySize;
 
-	// Method to rent a vehicle by its corresponding number
-	public void rentVehicle(int choice) {
-		if (choice < 1 || choice > inventory.length || inventory[choice - 1] == null) {
-			System.out.println("Invalid choice.");
-		} else {
-			System.out.println("You have rented a " + inventory[choice - 1].make + " " + inventory[choice - 1].model
-                    + " " + inventory[choice - 1].color + " " + inventory[choice - 1].price + ".");
-		}
-	}
+    // Constructor to initialize the inventory array
+    public InventoryManagementSystem(Vehicle[] inventory) {
+        this.inventory = inventory;
+        this.rentInventory = new Vehicle[inventory.length];
 
-	// Method to return a rented vehicle of a specific make, model and color
-	public void returnVehicle(String make, String model, String color) {
-		boolean found = false;
-		for (int i = 0; i < inventory.length; i++) {
-			if (inventory[i] != null && inventory[i].make.equals(make) && inventory[i].model.equals(model) && inventory[i].color.equals(color)) {
-				inventory[i] = null;
-				System.out.println("You have returned the " + color + " " + make + " " + model + ".");
-				found = true;
-				break;
-			}
-		}
-		if (!found) {
-			System.out.println("No matching vehicle found for return.");
-		}
-	}
+        inventorySize = inventory.length;
+        rentInventorySize = 0;
+    }
+    
+    //check if there is rent vehicle
+    public boolean hasRentVechile(){
+        return rentInventorySize > 0;
+    }
+
+    // Method to display the inventory
+    public void viewInventory() {
+        System.out.println("Available Vehicles:");
+        for (int i = 0; i < inventorySize; i++) {
+
+            System.out.println("Vehicle " + (i + 1) + " Make: " + inventory[i].make
+                    + ", Model: " + inventory[i].model
+                    + ", Color: " + inventory[i].color
+                    + ", Price: " + inventory[i].price);
+
+        }
+    }
+
+    // Method to display the rent inventory
+    public void viewRentInventory() {
+        System.out.println("Rent Vehicles:");
+        for (int i = 0; i < rentInventorySize; i++) {
+
+            System.out.println("Vehicle " + (i + 1) + " Make: " + rentInventory[i].make
+                    + ", Model: " + rentInventory[i].model
+                    + ", Color: " + rentInventory[i].color
+                    + ", Price: " + rentInventory[i].price);
+
+        }
+    }
+
+    // Method to rent a vehicle by its corresponding number
+    public void rentVehicle(int choice) {
+        if (choice < 1 || choice > inventorySize) {
+            System.out.println("Invalid choice.");
+        } else {
+            Vehicle vehicle = inventory[choice - 1];
+            System.out.println("You have rented: Make: " + inventory[choice - 1].make
+                    + ", Model: " + inventory[choice - 1].model
+                    + ", Color: " + inventory[choice - 1].color
+                    + ", Price: " + inventory[choice - 1].price);
+
+            //move it to the rent vehicle
+            rentInventory[rentInventorySize] = vehicle;
+
+            //shift the inventory
+            for (int i = choice - 1; i < inventorySize - 1; i++) {
+                inventory[i] = inventory[i + 1];
+            }
+
+            inventorySize -= 1;
+            rentInventorySize += 1;
+        }
+    }
+
+    // Method to return a rented vehicle of a specific type and color
+    public void returnVehicle(int choice) {
+
+        if (choice < 1 || choice > rentInventorySize) {
+            System.out.println("No renting vehicle for return.");
+        } else {
+            Vehicle vehicle = rentInventory[choice - 1];
+            System.out.println("You have returned: Make: " + rentInventory[choice - 1].make
+                    + ", Model: " + rentInventory[choice - 1].model
+                    + ", Color: " + rentInventory[choice - 1].color
+                    + ", Price: " + rentInventory[choice - 1].price);
+
+            //move it to the vehicle inventory
+            inventory[inventorySize] = vehicle;
+
+            //shift the rent inventory
+            for (int i = choice - 1; i < rentInventorySize - 1; i++) {
+                rentInventory[i] = rentInventory[i + 1];
+            }
+
+            inventorySize += 1;
+            rentInventorySize -= 1;
+        }
+    }
 }
