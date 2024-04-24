@@ -1,0 +1,77 @@
+package Dealership;
+// C211 Group Project Team 8
+// Ling Jin, Chelsea Rhea, Ben Hogan
+// April 23, 2024
+// Main with menu class
+//Adding each vehicle to the array 
+//creating menu with all the options 
+
+
+import java.util.Scanner;
+
+public class Menu {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Adding at least 10 vehicles to the inventory
+        Vehicle[] inventory = {
+            new Vehicle("Toyota ", " Prius ", "Red ", 78),
+            new Vehicle("Toyota ", " Camry ", " Red ", 83),
+            new Vehicle(" Toyota ", " Camry ", " Blue ", 83),
+            new Vehicle(" Ford ", " Explorer ", " Blue ", 79),
+            new Vehicle(" Ford ", " Explorer ", " Red ", 81),
+            new Vehicle(" Ford ", " Bronco ", " Black ", 98),
+            new Vehicle(" Audi ", " A5 ", " White ", 104),
+            new Vehicle(" Audi ", " A4 ", " Black ", 92),
+            new Vehicle("Audi", " A5 ", " Black ", 104),
+            new Vehicle(" Audi ", " A4 ", " Green ", 97)};
+
+        InventoryManagementSystem inventorySystem = new InventoryManagementSystem(inventory);
+
+        int choice;
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. View Inventory");
+            System.out.println("2. Rent Vehicle");
+            System.out.println("3. Return Vehicle");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            int index;
+
+            switch (choice) {
+                case 1:
+                    inventorySystem.viewInventory();
+                    break;
+                case 2:
+                    inventorySystem.viewInventory();
+                    System.out.print("Enter vehicle number to rent: ");
+                    index = scanner.nextInt();
+                    inventorySystem.rentVehicle(index);
+                    break;
+                case 3:
+                    if (inventorySystem.hasRentVechile()){
+                        inventorySystem.viewRentInventory();
+                        System.out.print("Enter vehicle number to retutn: ");
+                        index = scanner.nextInt();
+                        inventorySystem.returnVehicle(index);
+                    }else{
+                        System.out.println("You have not yet rent any vehicle");
+                    }
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again.");
+                    break;
+            }
+            
+            System.out.println();
+            
+        } while (choice != 4);
+    }
+}
