@@ -1,23 +1,26 @@
 package Dealership;
+// C211 Group Project Team 8
+// Ling Jin, Chelsea Rhea, Ben Hogan
+// April 23, 2024
 // Class for the different attributes of our rental cars
+
 public class Vehicle {
 
-	public String make,model, color;
-	public int price;
-	
-	
-	public Vehicle()
-	{
-		make = "";
-		model = "";
-		color = "";
-		price = 0;
-	}
-	public Vehicle(String make, String model, String color, int price) {
-		make = this.make;
-		model = this.model;
-		color = this.color;
-		price = this.price;
-		
-	}
+    public String make, model, color;
+    public int price;
+
+    public Vehicle() {
+        make = "";
+        model = "";
+        color = "";
+        price = 0;
+    }
+
+    public Vehicle(String make, String model, String color, int price) {
+        this.make = make;
+        this.model = model;
+        this.color = color;
+        this.price = price;
+
+    }
 }
