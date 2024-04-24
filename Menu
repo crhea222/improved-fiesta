@@ -18,7 +18,7 @@ public class Menu {
         // Adding at least 10 vehicles to the inventory
         Vehicle[] inventory = {
             new Vehicle("Toyota ", "Prius ", "Red ", 78),
-            new Vehicle("Toyota ", "Camry ", 'Red ", 83),
+            new Vehicle("Toyota ", "Camry ", "Red ", 83),
             new Vehicle("Toyota ", "Camry ", "Blue ", 83),
             new Vehicle("Ford ", "Explorer ", "Blue ", 79),
             new Vehicle("Ford ", "Explorer ", "Red ", 81),
