@@ -17,16 +17,16 @@ public class Menu {
 
         // Adding at least 10 vehicles to the inventory
         Vehicle[] inventory = {
-            new Vehicle("Toyota ", "Prius ", "Red ", 78),
-            new Vehicle("Toyota ", "Camry ", "Red ", 83),
-            new Vehicle("Toyota ", "Camry ", "Blue ", 83),
-            new Vehicle("Ford ", "Explorer ", "Blue ", 79),
-            new Vehicle("Ford ", "Explorer ", "Red ", 81),
-            new Vehicle("Ford ", "Bronco ", "Black ", 98),
-            new Vehicle("Audi ", "A5 ", "White ", 104),
-            new Vehicle("Audi ", "A4 ", "Black ", 92),
-            new Vehicle("Audi", "A5 ", "Black ", 104),
-            new Vehicle("Audi ", "A4 ", "Green ", 97)};
+            new Vehicle(" Toyota ","Prius    ", "Red   ", 78),
+            new Vehicle(" Toyota ","Camry    ", "Red   ", 83),
+            new Vehicle(" Toyota ","Camry    ", "Blue  ", 83),
+            new Vehicle(" Ford   ","Explorer ", "Blue  ", 79),
+            new Vehicle(" Ford   ","Explorer ", "Red   ", 81),
+            new Vehicle(" Ford   ","Bronco   ", "Black ", 98),
+            new Vehicle(" Audi   ","A5       ", "White ", 104),
+            new Vehicle(" Audi   ","A4       ", "Black ", 92),
+            new Vehicle(" Audi   ","A5       ", "Black ", 104),
+            new Vehicle("Audi   ","A4       ", "Green ", 97)};
 
         InventoryManagementSystem inventorySystem = new InventoryManagementSystem(inventory);
 
