@@ -40,7 +40,7 @@ public class InventoryManagementSystem {
             System.out.println("Vehicle " + (i + 1) + " Make: " + inventory[i].make
                     + ", Model: " + inventory[i].model
                     + ", Color: " + inventory[i].color
-                    + ", Price: " + inventory[i].price);
+                    + ", Price: $" + inventory[i].price);
 
         }
     }
@@ -53,7 +53,7 @@ public class InventoryManagementSystem {
             System.out.println("Vehicle " + (i + 1) + " Make: " + rentInventory[i].make
                     + ", Model: " + rentInventory[i].model
                     + ", Color: " + rentInventory[i].color
-                    + ", Price: " + rentInventory[i].price);
+                    + ", Price: $" + rentInventory[i].price);
 
         }
     }
@@ -67,7 +67,7 @@ public class InventoryManagementSystem {
             System.out.println("You have rented: Make: " + inventory[choice - 1].make
                     + ", Model: " + inventory[choice - 1].model
                     + ", Color: " + inventory[choice - 1].color
-                    + ", Price: " + inventory[choice - 1].price);
+                    + ", Price: $" + inventory[choice - 1].price);
 
             //move it to the rent vehicle
             rentInventory[rentInventorySize] = vehicle;
@@ -92,7 +92,7 @@ public class InventoryManagementSystem {
             System.out.println("You have returned: Make: " + rentInventory[choice - 1].make
                     + ", Model: " + rentInventory[choice - 1].model
                     + ", Color: " + rentInventory[choice - 1].color
-                    + ", Price: " + rentInventory[choice - 1].price);
+                    + ", Price: $" + rentInventory[choice - 1].price);
 
             //move it to the vehicle inventory
             inventory[inventorySize] = vehicle;
