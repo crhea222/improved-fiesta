@@ -22,37 +22,11 @@ class Vehicle:
 
     ////////////////////# Vehicle class representing a vehicle with type, color, and availability attributes 
 
-    attributes: type, color, available 
+    attributes: Make, model, color, price 
 
 ////////////////class to determine the starting point of all vehicles available  
 
-type(trucks, cars, vans) 
-
-color(red, blue, black) 
-
- 
-
-red trucks # available 
-
-blue trucks # available 
-
-black trucks # available 
-
- 
-
-red cars # available 
-
-blue cars # available 
-
-black cars # available 
-
- 
-
-red vans # available 
-
-blue vans # available 
-
-black vans # available 
+Vehicles( Make, Model, color, Price)
 
  
 
