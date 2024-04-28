@@ -19,7 +19,7 @@ Pseudocode final project:
  
 
 class Vehicle: 
-
+    //////////////////// Ended up changing attributes after intial set up
     ////////////////////# Vehicle class representing a vehicle with type, color, and availability attributes 
 
     attributes: Make, model, color, price 
